@@ -331,7 +331,7 @@ const ProductDetails = () => {
           <div className="decs d-flex flex-wrap align-items-start">
             <h2 className="mb-2 d-flex align-items-start">{product?.data?.name}
               {
-                !wishlist?.items?.find((item) => item.id == product?.data?._id)?.name?.length > 0
+                !wishlist?.items?.find((item) => item.id === product?.data?._id)?.name?.length > 0
                   ? <i onClick={handleAddWishList} className="bi bi-heart fs-5" style={{ marginBottom: '0px', position: 'relative', top: '8px', left: '4px', color: 'gray', cursor: 'pointer' }}></i>
                   : <i onClick={handleAddWishList} className="bi bi-heart-fill fs-5 text-danger" style={{ marginBottom: '0px', position: 'relative', top: '8px', left: '4px', color: 'gray', cursor: 'pointer' }}></i>
               }
