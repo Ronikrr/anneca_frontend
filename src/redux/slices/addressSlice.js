@@ -8,7 +8,7 @@ export const createAddress = createAsyncThunk(
         try {
             const token = getState().auth.token;
             const response = await axios.post(
-                'https://anneca-backend-89l2.vercel.app/api/v1/address/user/address',
+                'https://anneca-backend-sepia.vercel.app/api/v1/address/user/address',
                 addressData,
                 {
                     headers: {

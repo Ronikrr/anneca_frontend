@@ -471,7 +471,7 @@ const Header = () => {
     const handleLogout = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get("https://anneca-backend-89l2.vercel.app/api/v1/auth/logout", { withCredentials: true });
+            const response = await axios.get("https://anneca-backend-sepia.vercel.app/api/v1/auth/logout", { withCredentials: true });
             if (response.data.success) {
                 localStorage.clear();
                 sessionStorage.clear();

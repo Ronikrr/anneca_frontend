@@ -26,7 +26,7 @@ const Profile = () => {
   const fetchUserDetails = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('https://anneca-backend-89l2.vercel.app/api/v1/auth/me', {
+      const response = await axios.get('https://anneca-backend-sepia.vercel.app/api/v1/auth/me', {
         headers: {
           Authorization: `${token}`,
         },
@@ -52,7 +52,7 @@ const Profile = () => {
     }
     try {
       setLoading(true);
-      const response = await axios.put('https://anneca-backend-89l2.vercel.app/api/v1/auth/profile/update',
+      const response = await axios.put('https://anneca-backend-sepia.vercel.app/api/v1/auth/profile/update',
         { name, email },
         {
           headers: {
@@ -83,7 +83,7 @@ const Profile = () => {
     }
     try {
       setLoading(true);
-      await axios.post('https://anneca-backend-89l2.vercel.app/api/v1/auth/password/update',
+      await axios.post('https://anneca-backend-sepia.vercel.app/api/v1/auth/password/update',
         { oldPassword, newPassword, confirmPassword },
         {
           headers: {

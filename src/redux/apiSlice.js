@@ -4,7 +4,7 @@ import { setCategories, setError, setLoading } from './slices/categoriesSlice';
 export const apiSlice = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://anneca-backend-89l2.vercel.app/api/v1',
+        baseUrl: 'https://anneca-backend-sepia.vercel.app/api/v1',
         // baseUrl: 'http://localhost:8000/api/v1',
         prepareHeaders: (headers, { getState }) => {
             const token = getState().auth.token;
