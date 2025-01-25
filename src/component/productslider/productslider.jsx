@@ -277,8 +277,7 @@ const ProductDetails = () => {
                       <span className="d-flex align-items-center justify-content-center">
                         <div
                           className="spinner-border spinner-border-sm text-light"
-                          role="status"
-                        >
+                          role="status">
                           <span className="visually-hidden">Loading...</span>
                         </div>
                       </span>
@@ -324,7 +323,7 @@ const ProductDetails = () => {
             {product?.data?.quantity === 0 ? "Out of Stock" : "Buy Now"}
           </Button>
         </div>
-)}
+      )}
       <div className="mt-5 container product-slider d-flex flex-wrap align-items-start">
 
         <ProductDisplay images={images} currentImageIndex={currentImageIndex} handleImageHover={handleImageHover} />
@@ -362,7 +361,7 @@ const ProductDetails = () => {
               }
             </div>
           </div>
-       
+
           <div className="product-size mt-3 mb-2">
             <div className="size-title d-flex flex-wrap justify-content-between align-items-center">
               <h6 className="mb-0">Size</h6>
