@@ -166,10 +166,10 @@ const ProductDetails = () => {
           <div className="bg-white d-none d-lg-flex position-fixed w-100 bigscreen_scroll ">
             <div className="container h-100 ">
               <div className="d-flex align-items-center justify-content-between h-100">
-                <div className="">
+                <div className="col-4">
                   {product?.data?.name}
                 </div>
-                <div className="">
+                <div className="d-flex align-items-center gap-2">
                   <span className="fs-4 fw-semibold">
                     <del>₹{product?.data?.price}</del>
                   </span>
