@@ -163,7 +163,7 @@ const ProductDetails = () => {
     <>
       {showButton && (
         <>
-          <div className="bg-white d-none d-lg-flex position-fixed w-100 bigscreen_scroll ">
+          {/* <div className="bg-white d-none d-lg-flex position-fixed w-100 bigscreen_scroll ">
             <div className="container h-100 ">
               <div className="d-flex align-items-center justify-content-between h-100">
                 <div className="col-4">
@@ -209,6 +209,91 @@ const ProductDetails = () => {
                   </Button>
 
                   <Button variant="outline-dark bg-white" className="" onClick={handleBuyNow} disabled={product?.data?.quantity === 0}>
+                    {product?.data?.quantity === 0 ? "Out of Stock" : "Buy Now"}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div> */}
+          <div className="bg-white position-fixed w-100 bigscreen_scroll d-none d-lg-flex">
+            <div className="container h-100">
+              <div className="d-flex align-items-center justify-content-between h-100">
+                {/* Product Name */}
+                <div className="col-lg-4 col-md-6 text-truncate">
+                  {product?.data?.name}
+                </div>
+
+                {/* Pricing Section */}
+                <div className="d-flex align-items-center gap-3">
+                  <span className="fs-5 fw-semibold text-muted">
+                    <del>₹{product?.data?.price}</del>
+                  </span>
+                  <span className="fs-4 fw-bold color">₹{product?.data?.weight}</span>
+                </div>
+
+                {/* Size Selector */}
+                <div className="col-lg-2 col-md-3">
+                  <select
+                    className="form-select"
+                    value={selectedSize}
+                    onChange={handleSizeChange}
+                    aria-label="Select size"
+                  >
+                    {sizeData?.map((val, index) => (
+                      <option key={index} value={val}>
+                        {val}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Quantity Selector */}
+                <div className="d-flex align-items-center gap-2">
+                  <Button
+                    variant="outline-secondary"
+                    className="btn-sm"
+                    onClick={handleDecrement}
+                  >
+                    -
+                  </Button>
+                  <span className="fw-bold">{quantity}</span>
+                  <Button
+                    variant="outline-secondary"
+                    className="btn-sm"
+                    onClick={handleIncrement}
+                  >
+                    +
+                  </Button>
+                </div>
+
+                {/* Add to Cart & Buy Now Buttons */}
+                <div className="d-flex align-items-center gap-2">
+                  <Button
+                    className="btn-sm addtocart"
+                    onClick={handleAddToCart}
+                    disabled={loading || product?.data?.quantity === 0}
+                  >
+                    {loading ? (
+                      <span className="d-flex align-items-center justify-content-center">
+                        <div
+                          className="spinner-border spinner-border-sm text-light"
+                          role="status"
+                        >
+                          <span className="visually-hidden">Loading...</span>
+                        </div>
+                      </span>
+                    ) : product?.data?.quantity === 0 ? (
+                      "Out of Stock"
+                    ) : (
+                      "Add to Cart"
+                    )}
+                  </Button>
+
+                  <Button
+                    variant="outline-dark bg-white btn-sm"
+                    onClick={handleBuyNow}
+                    disabled={product?.data?.quantity === 0}
+                  >
                     {product?.data?.quantity === 0 ? "Out of Stock" : "Buy Now"}
                   </Button>
                 </div>
