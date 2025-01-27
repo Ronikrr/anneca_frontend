@@ -885,6 +885,12 @@ footer ul li {
 
 }
 
+/* add by ronik start */
+.btn_box_menu {
+  font-size: 25px;
+}
+
+/* add by ronik end */
 /* product-slider */
 .product-slider {
   overflow: hidden;
@@ -1493,7 +1499,8 @@ footer .footer-icon li:hover i {
     height: 20px;
   }
   .service .card{
-    max-height: 260px;
+    max-height: 100%;
+      height: 100%;
   }
   .service .card-img, .card-img-top{
     height: 25px;

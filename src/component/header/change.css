@@ -273,7 +273,7 @@
   }
 
   .banner .carousel-inner {
-    aspect-ratio: 2.7/1;
+    aspect-ratio: 16/9;
     object-fit: cover;
   }
 
@@ -295,7 +295,7 @@
   }
 
   .review-section .review-card {
-    aspect-ratio: 3 / 2.7;
+    aspect-ratio: 16/ 9;
     object-fit: cover;
   }
 }

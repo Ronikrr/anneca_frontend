@@ -97,8 +97,8 @@ const Header = () => {
                         <Link className="navbar-brand d-none d-lg-block" to="/">
                             <img src={logo} alt="Logo" />
                         </Link>
-                        <button className="navbar-toggler" type="button" onClick={handleToggle} aria-controls="navbarSupportedContent" aria-expanded={isMenuOpen} aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
+                        <button className="navbar-toggler  " type="button" onClick={handleToggle} aria-controls="navbarSupportedContent" aria-expanded={isMenuOpen} aria-label="Toggle navigation">
+                            {isMenuOpen ? (<i class="bi bi-x-lg btn_box_menu "></i>) : (<i class="bi bi-list btn_box_menu "></i>)}
                         </button>
                         <Link className="navbar-brand d-block d-lg-none me-0" to="/"><img src={logo} alt="Logo" width={90} /></Link>
                         <div className='text-black d-flex d-lg-none align-items-center'>
@@ -127,7 +127,7 @@ const Header = () => {
                             </Link>
                         </div>
                         <div className={`collapse p-2 p-lg-0 navbar-collapse headermobile ${isMenuOpen ? 'show' : ''}`} id="navbarSupportedContent">
-                            <div className='d-block d-lg-none'>
+                            <div className='d-block d-lg-none my-2 '>
                                 <div className="me-0">
                                     <form onSubmit={(event) => {
                                         event.preventDefault();

@@ -38,7 +38,6 @@ const ProductDetails = () => {
   const [video, setVideo] = useState({});
   const handleBuyNow = () => {
     if (!token) {
-
       navigate('/login');
       window.scrollTo(0, 0);
     } else {
