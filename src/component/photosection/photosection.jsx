@@ -18,8 +18,6 @@ const Photosection = () => {
                                     <img src={person1} alt="" />
                                 </div>
                             </div>
-                           
-
                         </div>
                         <Link to={`https://www.annecafashion.com/ourcollection/Lehenga%20Choli`} className="col-12 col-md-3">
                             <img  src={selling2} className='box_class' alt="" />
