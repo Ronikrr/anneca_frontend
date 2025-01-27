@@ -117,7 +117,6 @@ const Ourcollectionproduct = () => {
 
         <div className="description">
           <p className="desc mt-4 mb-0">Showing {filteredProducts.length} item(s)</p>
-          <p className="description-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div className="col-12 d-flex flex-wrap main-collection">
           <div className="col-12 col-lg-2 d-none d-lg-block">
