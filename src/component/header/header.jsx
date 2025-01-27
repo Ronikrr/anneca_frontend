@@ -152,7 +152,7 @@ const Header = () => {
                                                 isHovered ? handleMouseLeave() : handleMouseEnter();
                                             }
                                         }} onMouseLeave={tab.name === "Girls" ? handleMouseLeave : () => { }}>
-                                            <Link className={`nav-link ${isGirlsActive ? 'text-primary' : 'text-dark'}`} to={tab.name !== "Girls" && tab.to}>
+                                            <Link className={`nav-link ${isGirlsActive ? 'text-primary' : 'text-dark'}`} onClick={tab.name !== "Girls" && handleCloseMenu} to={tab.name !== "Girls" && tab.to}>
                                                 {tab.name}
                                             </Link>
                                             {isHovered && tab.name === "Girls" && (

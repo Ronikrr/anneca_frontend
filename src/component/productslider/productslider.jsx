@@ -38,7 +38,9 @@ const ProductDetails = () => {
   const [video, setVideo] = useState({});
   const handleBuyNow = () => {
     if (!token) {
+
       navigate('/login');
+      window.scrollTo(0, 0);
     } else {
       setShowBuyNowModal(true);
     }
@@ -304,7 +306,7 @@ const ProductDetails = () => {
 
       )}
       {showButtonmobile && (
-        <div className="addtocart_fixed_button d-block d-lg-none position-fixed d-flex align-items-center w-100 bg-white py-3 px-2 ">
+        <div className="addtocart_fixed_button d-block d-lg-none position-fixed d-flex align-items-center w-100 bg-white py-4 px-2 ">
           <Button className="addtocart w-50" onClick={handleAddToCart} disabled={loading || product?.data?.quantity === 0}>
             {loading ? (
               <span className="d-flex align-items-center justify-content-center">

@@ -34,7 +34,7 @@ const Login = () => {
         <div className='loginpage py-4'>
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="card col-6 p-0">
+                    <div className="card col-11 col-lg-6 p-0">
                         <div className="row g-0 justify-content-center">
                             <div className="col-12">
                                 <div className="card-body">
