@@ -43,7 +43,17 @@
   background:#b20570;
   border-radius: 5px;
 }
-
+#root {
+  overflow-x: hidden;
+  user-select: none;
+  /* For most modern browsers */
+  -webkit-user-select: none;
+  /* For Safari */
+  -moz-user-select: none;
+  /* For Firefox */
+  -ms-user-select: none;
+  /* For IE/Edge */
+}
 .sticky-top {
   top: -1px !important;
 }
