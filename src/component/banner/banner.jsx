@@ -18,9 +18,6 @@ const Banner = () => {
           <div className="carousel-item active"data-bs-interval="2500">
             <img src={'https://www.t3bucket.com/f/0-Banner1.jpg'} className="d-block w-100 bannerimg" loading='lazy' alt="..." />
           </div>
-          {/* <div className="carousel-item active d-block d-md-none"data-bs-interval="2500">
-            <img src={Benner_1} className="d-block w-100 bannerimg" alt="..." />
-          </div> */}
           <div className="carousel-item"data-bs-interval="2500">
             <img src={'https://www.t3bucket.com/f/0-Banner2.jpg'} className="d-block w-100 bannerimg" loading='lazy' alt="..." />
           </div>
