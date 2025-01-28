@@ -209,11 +209,15 @@
   }
 
   .banner .carousel-inner {
-    aspect-ratio: 2.8/1;
-    object-fit: cover;
-  }
+    aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    
 }
-
+ .banner img {
+   aspect-ratio: 16/9;
+   object-fit: cover;
+ }
 /* 1200px */
 @media (max-width: 992px) {
   .service .cardpart {
