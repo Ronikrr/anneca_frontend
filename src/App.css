@@ -57,6 +57,10 @@
 .sticky-top {
   top: -1px !important;
 }
+.carousel-control-next,
+.carousel-control-prev {
+  width: 2.5% !important;
+}
 
 body .text-primary {
   color: var(--button-color) !important;
