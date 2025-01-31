@@ -26,11 +26,8 @@ const Login = () => {
                 user: response.user,
             }));
             toast.success('Login successful!');
-
-            // Retrieve the stored page to redirect after login
             const redirectPath = localStorage.getItem("redirectAfterLogin") || "/";
-            localStorage.removeItem("redirectAfterLogin"); // Remove stored path
-
+            localStorage.removeItem("redirectAfterLogin");
             navigate(redirectPath, { replace: true, state: { showBuyNow: redirectPath.includes("product") } });
 
         } catch (err) {
