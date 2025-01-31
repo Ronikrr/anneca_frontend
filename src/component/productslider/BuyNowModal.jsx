@@ -121,8 +121,15 @@ const BuyNowModal = ({
     }
   };
 
+  const checklogin = () => {
+    if (!token) {
+      navigate('/login')
+      return
+    }
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^\d{10}$/;
 
@@ -188,6 +195,7 @@ const BuyNowModal = ({
   };
 
   const handlePayment = async () => {
+
     setIsLoading(true);
     const res = await initializeRazorpay();
     if (!res) {
@@ -202,29 +210,29 @@ const BuyNowModal = ({
 
       const orderData = cartItems
         ? {
-            amount: amountInPaise,
-            currency: "INR",
-            items: cartItems.map((item) => ({
-              id: item._id,
-              quantity: item.quantity,
-              size: item.cartsize,
-              sku: item.sku,
-            })),
-            paymentMethod: paymentMethod,
-            address: currentAddress,
-            coupon: appliedCoupon,
-          }
+          amount: amountInPaise,
+          currency: "INR",
+          items: cartItems.map((item) => ({
+            id: item._id,
+            quantity: item.quantity,
+            size: item.cartsize,
+            sku: item.sku,
+          })),
+          paymentMethod: paymentMethod,
+          address: currentAddress,
+          coupon: appliedCoupon,
+        }
         : {
-            amount: amountInPaise,
-            currency: "INR",
-            id: product?._id,
-            quantity: quantity,
-            paymentMethod: paymentMethod,
-            address: currentAddress,
-            coupon: appliedCoupon,
-            size: size,
-            sku: selectedSku,
-          };
+          amount: amountInPaise,
+          currency: "INR",
+          id: product?._id,
+          quantity: quantity,
+          paymentMethod: paymentMethod,
+          address: currentAddress,
+          coupon: appliedCoupon,
+          size: size,
+          sku: selectedSku,
+        };
 
       const result = await axios.post(
         `${api}/api/v1/payment/create-order`,
@@ -261,29 +269,29 @@ const BuyNowModal = ({
             try {
               const verifyData = cartItems
                 ? {
-                    ...response,
-                    items: cartItems.map((item) => ({
-                      id: item._id,
-                      quantity: item.quantity,
-                      size: item.cartsize,
-                      sku: item.sku,
-                    })),
-                    amount: amountInPaise / 100,
-                    paymentMethod: "prepaid",
-                    address: currentAddress,
-                    coupon: appliedCoupon,
-                  }
+                  ...response,
+                  items: cartItems.map((item) => ({
+                    id: item._id,
+                    quantity: item.quantity,
+                    size: item.cartsize,
+                    sku: item.sku,
+                  })),
+                  amount: amountInPaise / 100,
+                  paymentMethod: "prepaid",
+                  address: currentAddress,
+                  coupon: appliedCoupon,
+                }
                 : {
-                    ...response,
-                    id: product?._id,
-                    quantity: quantity,
-                    amount: amountInPaise / 100,
-                    paymentMethod: "prepaid",
-                    address: currentAddress,
-                    coupon: appliedCoupon,
-                    size: size,
-                    sku: selectedSku,
-                  };
+                  ...response,
+                  id: product?._id,
+                  quantity: quantity,
+                  amount: amountInPaise / 100,
+                  paymentMethod: "prepaid",
+                  address: currentAddress,
+                  coupon: appliedCoupon,
+                  size: size,
+                  sku: selectedSku,
+                };
 
               const verifyResult = await axios.post(
                 `${api}/api/v1/payment/verify-payment`,
@@ -496,7 +504,7 @@ const BuyNowModal = ({
                     />
                   </Form.Group>
                   <div className="d-flex align-items-center justify-content-center">
-                    <Button type="submit" className="addtocart">
+                      <Button type="submit" className="addtocart" >
                       Save Address & Proceed to Payment
                     </Button>
                   </div>

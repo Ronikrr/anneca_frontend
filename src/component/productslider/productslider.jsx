@@ -20,7 +20,7 @@ const ProductDetails = () => {
   const [Mobilescroll, setMobilescroll] = useState(0)
   const navigate = useNavigate()
   const token = useSelector((state) => state.auth.token);
-
+  const location = useLocation();
   const { productId } = useParams();
   const dispatch = useDispatch();
 
@@ -55,7 +55,7 @@ const ProductDetails = () => {
   };
 
 
-  const location = useLocation();
+
 
   useEffect(() => {
     if (location.state?.showBuyNow) {

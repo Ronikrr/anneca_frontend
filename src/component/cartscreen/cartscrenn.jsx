@@ -4,13 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateItemQuantity, removeItem } from '../../redux/slices/cartSlice';
 import BuyNowModal from '../productslider/BuyNowModal';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Cartscreen = () => {
     const cart = useSelector((state) => state.cart);
-   
- 
+    const navigate = useNavigate();
+    const token = useSelector((state) => state.auth.token);
     const dispatch = useDispatch();
-
+    const location = useLocation();
     const [quantities, setQuantities] = useState(
         cart.items.reduce((acc, item) => ({ ...acc, [item.id]: item.quantity }), {})
     );
@@ -30,17 +31,24 @@ const Cartscreen = () => {
    
 
     const handleProceedToCheckout = () => {
-        const productsForCheckout = cart.items.map((product) => ({
-            _id: product.id,
-            name: product.name,
-            weight: product.price,
-            quantity: quantities[product.id],
-            totalPrice: (product.price * quantities[product.id]).toFixed(2),
-            cartsize: product.cartsize,
-            sku: product.sku
-        }));
-        setSelectedProducts(productsForCheckout);
-        setShowModal(true);
+        if (!token) {
+            localStorage.setItem("redirectAfterLogin", location.pathname); // Store exact page path
+            navigate('/login', { state: { from: location.pathname } }); // Pass last page
+            window.scrollTo(0, 0);
+        } else {
+            const productsForCheckout = cart.items.map((product) => ({
+                _id: product.id,
+                name: product.name,
+                weight: product.price,
+                quantity: quantities[product.id],
+                totalPrice: (product.price * quantities[product.id]).toFixed(2),
+                cartsize: product.cartsize,
+                sku: product.sku
+            }));
+            setSelectedProducts(productsForCheckout);
+            setShowModal(true);
+        }
+
     };
 
     const handleCloseModal = () => {
