@@ -35,7 +35,7 @@ const ProductDetails = () => {
   const [showBuyNowModal, setShowBuyNowModal] = useState(false);
   const [selectedSize, setSelectedSize] = useState('');
   const [images, setImages] = useState([]);
-  const [video, setVideo] = useState({});
+
   // const handleBuyNow = () => {
   //   if (!token) {
   //     navigate('/login');
@@ -94,8 +94,8 @@ const ProductDetails = () => {
       setImages(product?.data?.images || []);
 
 
-      const videoContent = product?.data?.images?.find((v) => v?.url.includes("/video/"))
-      setVideo(videoContent)
+
+
       if (sizeExtract.length > 0) {
         setSelectedSize(sizeExtract[0]);
       }

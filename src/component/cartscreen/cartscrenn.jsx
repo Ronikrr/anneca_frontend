@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { RxCross2 } from "react-icons/rx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateItemQuantity, removeItem } from '../../redux/slices/cartSlice';
 import BuyNowModal from '../productslider/BuyNowModal';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Cartscreen = () => {
     const cart = useSelector((state) => state.cart);
@@ -75,9 +75,9 @@ const Cartscreen = () => {
                                 cart.items.map((order) => (
                                     <tr key={order.id} className='border col-12'>
                                         <th className='pe-3 pe-sm-4 py-3 py-md-4 ps-2 d-flex align-items-center border-bottom-0 fw-normal'>
-                                            <a href="javascript:void(0);" className='text-black' onClick={() => handleRemoveItem(order.id)}>
+                                            <Link to={''} className='text-black' onClick={() => handleRemoveItem(order.id)}>
                                                 <RxCross2 className='me-2' />
-                                            </a>
+                                            </Link>
                                             <span className='d-flex me-3 rounded-1r'>
                                                 <img
                                                     src={order.image}
