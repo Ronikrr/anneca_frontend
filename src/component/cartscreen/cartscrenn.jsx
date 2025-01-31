@@ -48,7 +48,6 @@ const Cartscreen = () => {
             setSelectedProducts(productsForCheckout);
             setShowModal(true);
         }
-
     };
 
     const handleCloseModal = () => {
