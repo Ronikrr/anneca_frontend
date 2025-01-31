@@ -5,17 +5,43 @@ import { useLoginMutation } from '../../redux/apiSlice';
 import { useDispatch } from 'react-redux';
 import { setCredentials } from '../../redux/slices/authSlice';
 import PasswordInput from './PasswordInput';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import loginImg from '../../assets/login.png';
 
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
     
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [login, { isLoading }] = useLoginMutation();
 
+    // const onSubmit = async (data) => {
+    //     try {
+    //         const response = await login(data).unwrap();
+    //         dispatch(setCredentials({
+    //             token: response.token,
+    //             user: response.user,
+    //         }));
+    //         toast.success('Login successful!');
+    //         // navigate('/');
+    //         navigate(from, { replace: true });
+    //         const redirectAction = localStorage.getItem("redirectAfterLogin"); // Check stored intent
+
+    //         localStorage.removeItem("redirectAfterLogin"); // Clear stored action
+
+    //         if (redirectAction === "buyNow") {
+    //             navigate(from, { replace: true, state: { showBuyNow: true } }); // Pass state for modal
+    //         } else {
+    //             navigate(from, { replace: true }); // Normal redirect
+    //         }
+
+    //     } catch (err) {
+    //         toast.error('Login failed. Please check your credentials.');
+    //     }
+    // };
     const onSubmit = async (data) => {
         try {
             const response = await login(data).unwrap();
@@ -24,11 +50,20 @@ const Login = () => {
                 user: response.user,
             }));
             toast.success('Login successful!');
-            navigate('/');
+
+            // Retrieve the stored page to redirect after login
+            const redirectPath = localStorage.getItem("redirectAfterLogin") || "/";
+            localStorage.removeItem("redirectAfterLogin"); // Remove stored path
+
+            navigate(redirectPath, { replace: true, state: { showBuyNow: redirectPath.includes("product") } });
+
         } catch (err) {
             toast.error('Login failed. Please check your credentials.');
         }
     };
+
+
+
 
     return (
         <div className='loginpage py-4'>

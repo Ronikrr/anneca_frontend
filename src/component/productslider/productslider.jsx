@@ -5,7 +5,7 @@ import Frequentlyaskedquestions from "../frequentlyaskedquestions/frequentlyaske
 import Testimonial from "../testimonial/testimonial";
 import ProductDisplay from "./productDisplay";
 import { useGetSingleProductQuery } from "../../redux/apiSlice";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Spinner from "../../utils/spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../redux/slices/cartSlice";
@@ -36,14 +36,32 @@ const ProductDetails = () => {
   const [selectedSize, setSelectedSize] = useState('');
   const [images, setImages] = useState([]);
   const [video, setVideo] = useState({});
+  // const handleBuyNow = () => {
+  //   if (!token) {
+  //     navigate('/login');
+  //     window.scrollTo(0, 0);
+  //   } else {
+  //     setShowBuyNowModal(true);
+  //   }
+  // };
   const handleBuyNow = () => {
     if (!token) {
-      navigate('/login');
+      localStorage.setItem("redirectAfterLogin", location.pathname); // Store exact page path
+      navigate('/login', { state: { from: location.pathname } }); // Pass last page
       window.scrollTo(0, 0);
     } else {
       setShowBuyNowModal(true);
     }
   };
+
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.showBuyNow) {
+      setShowBuyNowModal(true);
+    }
+  }, [location.state]);
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
