@@ -2,7 +2,7 @@ import './header.css';
 import React, { useState, useEffect } from 'react';
 import './change.css';
 import { FaSearch } from "react-icons/fa";
-import logo from '../../assets/logo.png';
+import logo from '../../assets/new_images/logo.avif';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MENU_ITEM } from '../../utils/constant';
 import { useGetAllCategoriesQuery } from '../../redux/apiSlice';

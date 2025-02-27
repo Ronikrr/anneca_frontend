@@ -1,5 +1,5 @@
 import React from 'react'
-import footer_logo from '../../assets/logo.png'
+import footer_logo from '../../assets/new_images/logo.avif'
 import { Link, useNavigate } from 'react-router-dom'
 const Footer = () => {
     const navigate = useNavigate();
@@ -30,24 +30,24 @@ const Footer = () => {
                                 </ul>
                                 <ul className='nav footer-icon '>
                                     <li className='me-3 d-flex align-items-center '>
-                                        <a href="https://www.youtube.com/@annecafashion6491" className="d-flex align-items-center justify-content-center">
+                                        <Link to="https://www.youtube.com/@annecafashion6491" className="d-flex align-items-center justify-content-center">
                                             <i class="bi bi-youtube "></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className='me-3 d-flex align-items-center '>
-                                        <a href="https://www.facebook.com/people/Annecafashion/61562048471470/" className="d-flex align-items-center justify-content-center" target='_blank'>
+                                        <Link to="https://www.facebook.com/people/Annecafashion/61562048471470/" className="d-flex align-items-center justify-content-center" target='_blank'>
                                             <i class="bi bi-facebook"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className='me-3 d-flex align-items-center '>
-                                        <a href="https://www.instagram.com/anneca_fashion/" target='_blank' className="d-flex align-items-center justify-content-center">
+                                        <Link to="https://www.instagram.com/anneca_fashion/" target='_blank' className="d-flex align-items-center justify-content-center">
                                             <i class="bi bi-instagram  instagram"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className='me-3 d-flex align-items-center '>
-                                        <a href="https://in.pinterest.com/annecaf/" target='_blank' className="d-flex align-items-center justify-content-center">
+                                        <Link to="https://in.pinterest.com/annecaf/" target='_blank' className="d-flex align-items-center justify-content-center">
                                             <i class="bi bi-pinterest"></i>
-                                        </a>
+                                        </Link>
                                     </li>
 
                                 </ul>

@@ -2,10 +2,10 @@ import React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import selling1 from "../../assets/selling-1.png";
-import selling2 from "../../assets/selling-2.png";
-import selling3 from "../../assets/selling-3.png";
-import selling4 from "../../assets/selling-4.png";
+import selling1 from "../../assets/new_images/selling-1.avif";
+import selling2 from "../../assets/new_images/selling-2.png";
+import selling3 from "../../assets/new_images/selling-3.png";
+import selling4 from "../../assets/new_images/selling-4.png";
 
 const PRODUCT = [
   {

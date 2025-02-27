@@ -1,7 +1,7 @@
 import React from 'react'
-import selling1 from "../../assets/discounts_image/Blue and White Minimalist Coupon Discount Promo Denim Instagram Post (3).png"
-import selling2 from "../../assets/discounts_image/Anneca sale (1).png"
-import person1 from "../../assets/discounts_image/Anneca sale (5).png"
+import selling1 from "../../assets/new_images/dis1.avif"
+import selling2 from "../../assets/new_images/dis3.avif"
+import person1 from "../../assets/new_images/dis2.avif"
 import { Link } from 'react-router-dom'
 const Photosection = () => {
     return (

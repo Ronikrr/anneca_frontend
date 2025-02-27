@@ -1,7 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import login from '../../assets/login.png';
 import PasswordInput from './PasswordInput';
 import { Link, useNavigate } from 'react-router-dom';
 import { setCredentials } from '../../redux/slices/authSlice';

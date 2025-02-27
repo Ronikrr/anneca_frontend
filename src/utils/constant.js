@@ -7,7 +7,6 @@ import Signup from "../component/login/signup";
 // import Cart from "../component/cartpage/cartpage";
 import CartAndPayment from "../component/cartpage/cartpage";
 import Personalinformation from "../component/personalinformation/personalinformation";
-import Featuredpost from "../component/blogpage/featuredpost";
 import Privacypolicy from "../component/privacypolicy/privacypolicy";
 import Neworder from "../component/neworder/neworder";
 import Privacy from "../pages/Privacy";
@@ -65,10 +64,6 @@ export const ROUTES = [
     {
         path: "/personal/",
         component: <Personalinformation />,
-    },
-    {
-        path: "/blog/",
-        component: <Featuredpost />,
     },
     {
         path: "/privacypolicy/",

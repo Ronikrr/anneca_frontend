@@ -2,24 +2,16 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import boys1 from "../../assets/seller1.jpg"; // Replace with actual image paths
-import boys2 from "../../assets/seller2.jpg"; // Replace with actual image paths
-import boys3 from "../../assets/seller3.jpg"; // Replace with actual image paths
-import girls1 from "../../assets/059A2397 copy.jpg"; // Replace with actual image paths
-import girls2 from "../../assets/seller-4.jpeg"; // Replace with actual image paths
-import girls3 from "../../assets/1.jpg"; // Replace with actual image paths
+import girls1 from "../../assets/new_images/3.avif";
+import girls2 from "../../assets/new_images/2.avif";
+import girls3 from "../../assets/new_images/1.avif";
 import { useNavigate } from 'react-router-dom';
 
 const categories = [
-    // { id: 1, name: 'Boys' },
     { id: 2, name: 'Girls' },
 ];
 
-const boysCategories = [
-    { id: 1, name: 'Kurta', img: boys1 },
-    { id: 2, name: 'Shirt', img: boys2 },
-    { id: 3, name: 'Pants', img: boys3 },
-];
+
 
 const girlsCategories = [
     { id: 1, url: 'lehenga choli', name: 'Lehenga choli', img: girls1 },
