@@ -1,7 +1,7 @@
 import React from 'react'
-import Bannerimg from '../../assets/Banner1.jpg';
-import Benner_2 from '../../assets/Banner2.jpg';
-import Benner_3 from '../../assets/Banner3.jpg';
+import Bannerimg from '../../assets/new_images/Banner1.avif';
+import Benner_2 from '../../assets/new_images/Banner2.avif';
+import Benner_3 from '../../assets/new_images/Banner3.avif';
 // import Benner_1 from '../../assets/banner-responsive.jpg';
 
 const Banner = () => {
