@@ -63,7 +63,7 @@ const ProductCard = ({ products, sliderRef}) => {
                             </div>
                             <div className="plusicon ms-auto">
                                 <a href="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 25 24" fill="none">
                                         <path d="M12.5 1.5C6.725 1.5 2 6.225 2 12C2 17.775 6.725 22.5 12.5 22.5C18.275 22.5 23 17.775 23 12C23 6.225 18.275 1.5 12.5 1.5ZM12.5 21.225C7.4 21.225 3.275 17.1 3.275 12C3.275 6.9 7.4 2.775 12.5 2.775C17.6 2.775 21.725 6.9 21.725 12C21.725 17.1 17.6 21.225 12.5 21.225Z" fill="black" />
                                         <path d="M13.1 8.32495H11.9V11.4H9.125V12.6H11.9V15.825H13.1V12.6H15.95V11.4H13.1V8.32495Z" fill="black" />
                                     </svg>

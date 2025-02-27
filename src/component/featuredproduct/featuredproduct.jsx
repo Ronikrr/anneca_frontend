@@ -25,8 +25,8 @@ const FeaturedProduct = () => {
   return (
     <div className=' position-relative overflow-x-hidden'>
       <div className='container'>
-      <button onClick={previous} className="carousel-control-prev fs-1 ms-4 ms-lg-5   text-dark position-absolute justify-content-start">
-        <IoIosArrowDropleftCircle aria-hidden="true" />
+        <button onClick={previous} className="carousel-control-prev fs-2 ms-4 ms-lg-5   text-dark position-absolute justify-content-start">
+          <IoIosArrowDropleftCircle className='w-100 h-100 ' aria-hidden="true" />
         <span className="visually-hidden">Previous</span>
       </button>
       <div className="feature_product mx-5">
@@ -37,8 +37,8 @@ const FeaturedProduct = () => {
         </div>
         <ProductCard products={data?.products} sliderRef={sliderRef} />
       </div>
-      <button onClick={next} className="carousel-control-next  fs-1 me-4 me-lg-5 text-dark position-absolute justify-content-end">
-        <IoIosArrowDroprightCircle aria-hidden="true" />
+        <button onClick={next} className="carousel-control-next  fs-2 me-4 me-lg-5 text-dark position-absolute justify-content-end">
+          <IoIosArrowDroprightCircle className='w-100 h-100 ' aria-hidden="true" />
 
         <span className="visually-hidden">Next</span>
       </button>
