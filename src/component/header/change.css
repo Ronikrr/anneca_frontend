@@ -90,11 +90,7 @@
   object-fit: cover;
 }
 
-.review-section .review-card {
-  aspect-ratio: 3 / 3;
-  overflow: hidden;
-  object-fit: cover;
-}
+
 
 .title button {
   border: 1px solid transparent;
@@ -165,7 +161,11 @@
     overflow: hidden;
    
   }
-
+.review-section .review-card {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  object-fit: cover;
+}
   .review-section .review-card {
     aspect-ratio: 3 / 1;
     object-fit: cover;
