@@ -50,7 +50,20 @@ const Header = () => {
     const handleLanguageSelect = (language) => setSelectedLanguage(language);
     const handleToggle = () => setIsMenuOpen(!isMenuOpen);
     const handleCloseMenu = () => isMenuOpen && setIsMenuOpen(false);
+    const [scrolled, setScrolled] = useState(false);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
     const handleClickOutside = (event) => {
         const toggleButton = document.querySelector('.navbar-toggler');
         const collapseMenu = document.querySelector('#navbarSupportedContent');
@@ -91,19 +104,19 @@ const Header = () => {
     return (
         <>
             {isMenuOpen && <div className="overlay" onClick={handleCloseMenu}></div>}
-            <header className='bg-white px-2 sticky-top mainnavbar'>
-                <nav className="bg-white navbar navbar-expand-lg p-2 p-xl-0">
-                    <div className="container-fluid justify-content-between align-items-center p- 0">
-                        <Link className="navbar-brand d-none d-lg-block" to="/">
+            <header className={`bg-white fixed-top mainnavbar ${scrolled ? 'mt-0' : 'mt-95'} px-2`}>
+                <nav className="navbar navbar-expand-lg bg-white p-2 p-xl-0">
+                    <div className="container-fluid align-items-center justify-content-between p- 0">
+                        <Link className="d-lg-block d-none navbar-brand" to="/">
                             <img src={logo} alt="Logo" />
                         </Link>
-                        <button className="navbar-toggler  " type="button" onClick={handleToggle} aria-controls="navbarSupportedContent" aria-expanded={isMenuOpen} aria-label="Toggle navigation">
-                            {isMenuOpen ? (<i class="bi bi-x-lg btn_box_menu "></i>) : (<i class="bi bi-list btn_box_menu "></i>)}
+                        <button className="navbar-toggler" type="button" onClick={handleToggle} aria-controls="navbarSupportedContent" aria-expanded={isMenuOpen} aria-label="Toggle navigation">
+                            {isMenuOpen ? (<i class="btn_box_menu bi bi-x-lg"></i>) : (<i class="btn_box_menu bi bi-list"></i>)}
                         </button>
-                        <Link className="navbar-brand d-block d-lg-none me-0" to="/"><img src={logo} alt="Logo" width={90} /></Link>
-                        <div className='text-black d-flex d-lg-none align-items-center'>
+                        <Link className="d-block d-lg-none navbar-brand me-0" to="/"><img src={logo} alt="Logo" width={90} /></Link>
+                        <div className='d-flex d-lg-none align-items-center text-black'>
                             <div className="dropdown">
-                                <button onClick={() => setProfileOpen(!profileOpen)} className="d-none d-lg-flex bg-transparent border-0 account_sign text-start" type="button" data-bs-toggle="dropdown" aria-expanded={profileOpen}>
+                                <button onClick={() => setProfileOpen(!profileOpen)} className="d-lg-flex d-none bg-transparent border-0 text-start account_sign" type="button" data-bs-toggle="dropdown" aria-expanded={profileOpen}>
                                     <i className="bi bi-person fs-4"></i>
                                 </button>
                                 <ul className={`dropdown-menu dropdown-menu2 ${profileOpen ? 'show' : 'd-none'}`}>
@@ -113,21 +126,21 @@ const Header = () => {
                                     {user && <li className="dropdown-item" onClick={handleLogout}>Logout</li>}
                                 </ul>
                             </div>
-                            <Link to="/cart" className='d-flex align-items-center ms-2 position-relative' onClick={handleCloseMenu}>
-                                <i className="bi bi-bag text-dark fs-5" style={{ marginBottom: '2px' }}></i>
-                                <span className="cart_message position-absolute start-100 translate-middle border border-light rounded-circle">
+                            <Link to="/cart" className='d-flex align-items-center position-relative ms-2' onClick={handleCloseMenu}>
+                                <i className="text-dark bi bi-bag fs-5" style={{ marginBottom: '2px' }}></i>
+                                <span className="border border-light position-absolute rounded-circle cart_message start-100 translate-middle">
                                     <span>{cart?.items?.length || 0}</span>
                                 </span>
                             </Link>
-                            <Link to="/wishlist" className='d-flex align-items-center ms-3 position-relative' onClick={handleCloseMenu}>
-                                <i className="bi bi-heart text-dark fs-5" style={{ marginBottom: '2px' }}></i>
-                                <span className="cart_message position-absolute start-100 translate-middle border border-light rounded-circle">
+                            <Link to="/wishlist" className='d-flex align-items-center position-relative ms-3' onClick={handleCloseMenu}>
+                                <i className="text-dark bi bi-heart fs-5" style={{ marginBottom: '2px' }}></i>
+                                <span className="border border-light position-absolute rounded-circle cart_message start-100 translate-middle">
                                     <span>{wishlist?.items?.length || 0}</span>
                                 </span>
                             </Link>
                         </div>
                         <div className={`collapse p-2 p-lg-0 navbar-collapse headermobile ${isMenuOpen ? 'show' : ''}`} id="navbarSupportedContent">
-                            <div className='d-block d-lg-none my-2 '>
+                            <div className='d-block d-lg-none my-2'>
                                 <div className="me-0">
                                     <form onSubmit={(event) => {
                                         event.preventDefault();
@@ -170,34 +183,34 @@ const Header = () => {
                                     );
                                 })}
                             </ul>
-                            <div className='text-black d-flex d-lg-none align-items-start w-100 justify-content-around'>
+                            <div className='d-flex d-lg-none align-items-start justify-content-around text-black w-100'>
                                 <div className="dropdown w-100">
                                     <hr />
-                                    <button className="d-flex align-items-center text-capitalize gap-2 d-lg-none bg-transparent border-0 account_sign text-start" type="button" data-bs-toggle="dropdown">
+                                    <button className="d-flex d-lg-none align-items-center bg-transparent border-0 text-capitalize text-start account_sign gap-2" type="button" data-bs-toggle="dropdown">
                                         <i className="bi bi-person fs-4"></i> account
                                     </button>
                                     <ul className='list-unstyled w-100'>
-                                        <li className='w-100 nav-item py-2'>
+                                        <li className='nav-item w-100 py-2'>
                                             <Link to={"/orders"} onClick={handleCloseMenu} className='nav-link'>Order History</Link>
                                         </li>
-                                        <li className='w-100 nav-item py-2'>
+                                        <li className='nav-item w-100 py-2'>
                                             <Link to={`/contactus`} onClick={handleCloseMenu} className='nav-link'>Contact Us</Link>
                                         </li>
-                                        <li className='w-100 nav-item py-2'>
+                                        <li className='nav-item w-100 py-2'>
                                             <Link to={`/returnpolicy`} onClick={handleCloseMenu} className='nav-link'>Return & Refund</Link>
                                         </li>
-                                        <li className='w-100 nav-item py-2'>
+                                        <li className='nav-item w-100 py-2'>
                                             <Link to={`/shipping`} onClick={handleCloseMenu} className='nav-link'>Shipping Policy</Link>
                                         </li>
-                                        <li className='w-100 nav-item py-2'>
+                                        <li className='nav-item w-100 py-2'>
                                             <Link to={"/login"} onClick={handleCloseMenu} className='nav-link'>Login & Security</Link>
                                         </li>
-                                        {user && <li onClick={handleCloseMenu} className='w-100 nav-item py-2'><Link onClick={handleLogout} className='nav-link'>Logout</Link></li>}
+                                        {user && <li onClick={handleCloseMenu} className='nav-item w-100 py-2'><Link onClick={handleLogout} className='nav-link'>Logout</Link></li>}
                                     </ul>
                                 </div>
                             </div>
                             <div className="d-block d-lg-none">
-                                <div className="d-flex align-items-center flex-wrap justify-content-between">
+                                <div className="d-flex flex-wrap align-items-center justify-content-between">
                                     <DropdownButton
                                         id="dropdown-country-button"
                                         title={<span><img src={selectedCountry.flag} alt={selectedCountry.name} style={{ width: '20px', height: '20px', marginRight: '8px' }} /> {selectedCountry.name}</span>}
@@ -225,10 +238,10 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="d-none d-lg-block">
-                            <div className="d-flex align-items-center flex-wrap">
-                                <div className="search-container me-0">
-                                    <div className="search-iconbox me-3">
+                        <div className="d-lg-block d-none">
+                            <div className="d-flex flex-wrap align-items-center">
+                                <div className="me-0 search-container">
+                                    <div className="me-3 search-iconbox">
                                         <FaSearch className="search-icon" />
                                     </div>
                                     <form onSubmit={(event) => {
@@ -263,7 +276,7 @@ const Header = () => {
                                     ))}
                                 </DropdownButton>
                                 <div className="dropdown">
-                                    <button onClick={() => setProfileOpen(!profileOpen)} className="bg-transparent border-0 account_sign text-start me-1" type="button" data-bs-toggle="dropdown" aria-expanded={profileOpen}>
+                                    <button onClick={() => setProfileOpen(!profileOpen)} className="bg-transparent border-0 text-start account_sign me-1" type="button" data-bs-toggle="dropdown" aria-expanded={profileOpen}>
                                         <i className="bi bi-person fs-4"></i>
                                     </button>
                                     <ul className={`dropdown-menu ${profileOpen ? 'show' : 'd-none'}`}>
@@ -273,15 +286,15 @@ const Header = () => {
                                         {user && <li className="dropdown-item" onClick={handleLogout}>Logout</li>}
                                     </ul>
                                 </div>
-                                <Link to="/cart" className='d-flex align-items-center mx-2 position-relative' onClick={handleCloseMenu}>
-                                    <i className="bi bi-bag text-dark fs-5" style={{ marginBottom: '2px' }}></i>
-                                    <span className="cart_message position-absolute start-100 translate-middle border border-light rounded-circle">
+                                <Link to="/cart" className='d-flex align-items-center position-relative mx-2' onClick={handleCloseMenu}>
+                                    <i className="text-dark bi bi-bag fs-5" style={{ marginBottom: '2px' }}></i>
+                                    <span className="border border-light position-absolute rounded-circle cart_message start-100 translate-middle">
                                         <span className="cart_text">{cart?.items?.length || 0}</span>
                                     </span>
                                 </Link>
-                                <Link to="/wishlist" className='d-flex align-items-center ms-3 position-relative' onClick={handleCloseMenu}>
-                                    <i className="bi bi-heart text-dark fs-5" style={{ marginBottom: '2px' }}></i>
-                                    <span className="cart_message position-absolute start-100 translate-middle border border-light rounded-circle">
+                                <Link to="/wishlist" className='d-flex align-items-center position-relative ms-3' onClick={handleCloseMenu}>
+                                    <i className="text-dark bi bi-heart fs-5" style={{ marginBottom: '2px' }}></i>
+                                    <span className="border border-light position-absolute rounded-circle cart_message start-100 translate-middle">
                                         <span className="cart_text">{wishlist?.items?.length || 0}</span>
                                     </span>
                                 </Link>
@@ -290,7 +303,7 @@ const Header = () => {
                     </div>
                 </nav>
                 {profileOpen && (
-                    <ul className='customprofiledown mt-3 d-none'>
+                    <ul className='d-none customprofiledown mt-3'>
                         {MENU_ITEM.map((v) => (
                             <Link key={v.path} onClick={() => setProfileOpen(false)} className={`nav-link mt-2`} to={v.path}>{v.item}</Link>
                         ))}
