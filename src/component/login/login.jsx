@@ -38,7 +38,7 @@ const Login = () => {
 
 
     return (
-        <div className='loginpage py-4'>
+        <div className='loginpage py-4 loginbox'>
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="card col-11 col-lg-6 p-0">

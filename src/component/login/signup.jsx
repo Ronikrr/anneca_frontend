@@ -38,7 +38,7 @@ const Signup = () => {
     };
 
     return (
-        <div className='loginpage signup py-4'>
+        <div className='loginpage signup py-4 loginbox'>
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="card col-12 col-lg-6 p-0">

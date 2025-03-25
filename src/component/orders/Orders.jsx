@@ -49,7 +49,7 @@ const Orders = () => {
   if (loading) return <div className="text-center mt-8"><Spinner /></div>;
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 container_box">
       <h1>Your Orders</h1>
       {orders.length === 0 ? (
         <p>No Order Yet</p>

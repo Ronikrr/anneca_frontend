@@ -57,7 +57,7 @@ const Cartscreen = () => {
 
 
     return (
-        <div className="cartscreen container py-5">
+        <div className="cartscreen container  loginbox py-5">
             <div className='col-12'>
                 <div className="table-responsive">
                     <table className="table table-striped mb-5">

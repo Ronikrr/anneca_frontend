@@ -14,7 +14,7 @@ const WishList = () => {
     };
 
     return (
-        <div className="WishList container py-5">
+        <div className="WishList container loginbox py-5">
             <div className='col-12'>
                 <div className="table-responsive">
                     <table className="table table-striped mb-5">

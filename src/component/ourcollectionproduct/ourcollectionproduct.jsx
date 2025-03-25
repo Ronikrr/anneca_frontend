@@ -76,7 +76,7 @@ const Ourcollectionproduct = () => {
   const filteredProducts = getFilteredProducts();
 
   return (
-    <div className="container mt-5">
+    <div className="container loginbox mt-5">
       <div className="col-12">
         <div className="title">
           <h4 className="text-center mb-2 mb-lg-4">Our Collection Of {decodedPath}</h4>
