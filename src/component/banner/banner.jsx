@@ -7,13 +7,11 @@ import Benner_3 from '../../assets/new_images/Banner3.avif';
 const Banner = () => {
   return (
     <div className='banner'>
-     
       <div
         id="carouselExampleCaptions"
         className="carousel slide"
         data-bs-ride="carousel"
       >
-        
         <div className="carousel-inner">
           <div className="carousel-item active"data-bs-interval="2500">
             <img src={Bannerimg} className="d-block w-100 bannerimg" loading='lazy' alt="..." />

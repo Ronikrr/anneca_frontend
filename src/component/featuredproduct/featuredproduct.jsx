@@ -9,6 +9,7 @@ import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { useGetFeaturedProductQuery } from '../../redux/apiSlice';
 import ProductCard from '../product-card';
 
+
 const FeaturedProduct = () => {
   const sliderRef = useRef(null);
 

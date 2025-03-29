@@ -29,41 +29,6 @@ const CartAndPayment = () => {
   return (
     <div className="container my-5 cartpayment">
       <div className="row">
-        {/* <div className="col-md-6">
-                    <h2>Cart Details</h2>
-                    <table className="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Quantity</th>
-                                <th>Subtotal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {cart.map((item, index) => (
-                                <tr key={index}>
-                                    <td>{item.product}</td>
-                                    <td>{item.quantity}</td>
-                                    <td>${item.quantity * item.price}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colSpan={2}>Subtotal</td>
-                                <td>${calculateSubtotal()}</td>
-                            </tr>
-                            <tr>
-                                <td colSpan={2}>Shipping</td>
-                                <td>$100</td>
-                            </tr>
-                            <tr>
-                                <td colSpan={2}>Total</td>
-                                <td>${countTotal()}</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div> */}
         <div className="col-md-12 d-flex flex-wrap justify-content-center justify-lg-content-start">
           <div className="col-12 col-md-6 px-2 px-lg-0 ">
             <div className="card me-0 me-lg-0">
@@ -184,14 +149,6 @@ const CartAndPayment = () => {
                       <div className="modal fade col-8" id="login_modal">
                         <div className="modal-dialog modal-dialog-centered">
                           <div className="modal-content">
-                            {/* <div className="modal-header"> 
-                                                            <button
-                                                                type="button"
-                                                                className="btn-close"
-                                                                data-bs-dismiss="modal"
-                                                                aria-label="Close"
-                                                            />
-                                                        </div> */}
                             <div className="modal-body">
                               <div className="tab-content text-center">
                                 <svg

@@ -28,7 +28,7 @@ const Cartscreen = () => {
         dispatch(removeItem(id));
     };
 
-   
+
 
     const handleProceedToCheckout = () => {
         if (!token) {
